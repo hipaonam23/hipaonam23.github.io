@@ -1,19 +1,22 @@
 // Creating map options
-                 let mapOptions = {
-                    center: [48, 2],
-                    zoom: 10
-                 }
+let mapOptions = {
+	center: [48, 2],
+	zoom: 10
+}
                  
-                 // Creating a map object
-                 let map = new L.map('map', mapOptions);
-                 
-                 // Creating a Layer object
-                 let layer = new 
-	         L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-                 
-		let polygon = new L.Polygon([
+// Creating a map object
+let map = new L.map('map', mapOptions);
+// Creating a Layer object
+let layer = new 
+	
+/* display basemap tiles -- see others at https://leaflet-extras.github.io/leaflet-providers/preview/ */
+L.TileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://osm.org/copyright">\
+        OpenStreetMap</a> contributors, &copy;\
+        <a href="https://carto.com/attribution">CARTO</a>'
+}).addTo(map);
 
-		
+let polygon = new L.Polygon([
 			[
 			[48.8702, 2.3368],
 			[48.8741, 2.3368],
@@ -27,13 +30,13 @@
 		
 		]);
 
-		map.addLayer(polygon);
+map.addLayer(polygon);
 
 		
-                 // Adding layer to the map
-                 map.addLayer(layer);	
+// Adding layer to the map
+map.addLayer(layer);	
 
-		 let locations = [
+let locations = [
     			{
         			"id": 1,
         			"lat": 48.8702,
